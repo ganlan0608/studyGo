@@ -12,22 +12,24 @@ func arraySum(arrayA [5]int) int {
 	return sum
 }
 
-func arraySum8(arrayA [5]int) {
+func arraySum8(arrayA [5]int) [][]int {
 	sumAnd := 8
+	var sumSlice [][]int
 	for index, v := range arrayA {
 		for i := index + 1; i < len(arrayA); i++ {
 			if v+arrayA[i] == sumAnd {
-				println(index, i)
+				a := []int{index, i}
+				sumSlice = append(sumSlice, a)
 			}
-
 		}
 	}
+	return sumSlice
 }
 
 func main() {
 	arrayA := [5]int{1, 3, 5, 7, 9}
 	sum := arraySum(arrayA)
 	println(sum)
-	fmt.Printf("%v\n", arrayA)
-	arraySum8(arrayA)
+	x := arraySum8(arrayA)
+	fmt.Printf("%d\n", x)
 }
