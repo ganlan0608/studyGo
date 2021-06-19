@@ -13,7 +13,7 @@ func primes(start, end int) {
 }
 func prime(v int) {
 	var x bool
-	for i := 2; i < v; i++ {
+	for i := 2; i < v/2; i++ {
 		if v%i == 0 {
 			x = true
 			break
@@ -26,11 +26,13 @@ func prime(v int) {
 }
 
 func nineNine() {
-	var num []int
+	var num []string
+
 	for i := 1; i <= 9; i++ {
-		num = []int{}
+		num = []string{}
 		for x := 1; x <= i; x++ {
-			num = append(num, x*i)
+			numStr := fmt.Sprintf("%d*%d=%d", x, i, x*i)
+			num = append(num, numStr)
 		}
 		fmt.Printf("%v\n", num)
 
@@ -39,6 +41,6 @@ func nineNine() {
 
 func main() {
 	nineNine()
-	primes(100, 200)
+	primes(1, 10)
 
 }
