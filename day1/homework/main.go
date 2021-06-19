@@ -26,9 +26,9 @@ func prime(v int) {
 }
 
 func nineNine() {
-
+	var num []int
 	for i := 1; i <= 9; i++ {
-		var num []int
+		num = []int{}
 		for x := 1; x <= i; x++ {
 			num = append(num, x*i)
 		}
@@ -39,5 +39,6 @@ func nineNine() {
 
 func main() {
 	nineNine()
+	primes(100, 200)
 
 }
