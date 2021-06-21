@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strings"
 )
 
@@ -59,10 +60,24 @@ func b() {
 	panic("err")
 
 }
+func f1() {
+	var a1 []int
+	a1 = make([]int, 0, 3)
+	a1 = append(a1, 1, 2, 3)
+	b1 := a1
+	println("a1内存:", a1)
+	fmt.Printf("a1值：%d\n", a1)
+	println("b2内存:", b1)
+	fmt.Printf("b1值：%d\n", b1)
+	println("-----------------------")
+	a1 = append(a1, 4, 5)
+	println("a1内存:", a1)
+	fmt.Printf("a1值：%d\n", a1)
+	println("b2内存:", b1)
+	fmt.Printf("b1值：%d\n", b1)
+
+}
 
 func main() {
-	aa()
-	b()
-	aa()
 
 }
