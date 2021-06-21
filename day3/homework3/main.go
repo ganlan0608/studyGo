@@ -14,18 +14,29 @@ type book struct {
 func newBook(bs *[]*book) {
 	b := new(book)
 	print("title:")
-	fmt.Scanln(&b.title)
+	_, err := fmt.Scanln(&b.title)
+	if err != nil {
+		return
+	}
 	print("author:")
-	fmt.Scanln(&b.author)
+	_, err = fmt.Scanln(&b.author)
+	if err != nil {
+		return
+	}
 	print("price:")
-	fmt.Scanln(&b.price)
+	_, err = fmt.Scanln(&b.price)
+	if err != nil {
+		return
+	}
 	print("publish:")
-	fmt.Scanln(&b.publish)
+	_, err = fmt.Scanln(&b.publish)
+	if err != nil {
+		return
+	}
 	*bs = append(*bs, b)
 	showBooks(*bs)
 	return
 }
-
 func showBooks(books []*book) {
 	for _, i := range books {
 		fmt.Printf("%v\n", *i)
@@ -34,7 +45,10 @@ func showBooks(books []*book) {
 func delBook(bs *[]*book) {
 	var title string
 	print("title:")
-	fmt.Scanln(&title)
+	_, err := fmt.Scanln(&title)
+	if err != nil {
+		return
+	}
 	for index, i := range *bs {
 		if (*i).title == title {
 			*bs = append((*bs)[:index], (*bs)[index+1:]...)
