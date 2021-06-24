@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+var count int
+
 func primes(start, end int) {
 	if start == 1 {
 		start++
@@ -12,15 +14,17 @@ func primes(start, end int) {
 
 }
 func prime(v int) {
-	var x bool
-	for i := 2; i < v/2; i++ {
+	var x = true
+
+	for i := 2; i < v; i++ {
 		if v%i == 0 {
-			x = true
+			x = false
 			break
 		}
 	}
-	if x != true {
-		fmt.Printf("%d是一个素数\n", v)
+	if x {
+		count++
+		fmt.Printf("%d是第%d个素数\n", v, count)
 	}
 
 }
@@ -42,5 +46,4 @@ func nineNine() {
 func main() {
 	nineNine()
 	primes(1, 10)
-
 }
